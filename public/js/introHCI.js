@@ -27,4 +27,17 @@ function addProjectDetails(e) {
 	var idNumber = projectID.substr('project'.length);
 
 	console.log("User clicked on project " + idNumber);
+
+	$.get(`http://localhost:3000/project/${idNumber}`, callbackfunc);
+}
+
+function callbackfunc(response) {
+	console.log(response);
+	const details = `<h5>${response.title}</h5>` +
+					`<h6>${response.date}</h6>` + 
+					`<img class="detailsImage" src="${response.image}"></img>` +
+					`${response.summary}`;
+	$(`#project${response.id} .details`).html(details);
+	//console.log($(`#${response.id} .details`));
+	//.html("<h1>FOOOO</h1>")
 }
