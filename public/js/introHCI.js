@@ -28,7 +28,7 @@ function addProjectDetails(e) {
 
 	console.log("User clicked on project " + idNumber);
 
-	$.get(`http://localhost:3000/project/${idNumber}`, callbackfunc);
+	$.get(`https://lab6-sccontre.herokuapp.com/project/${idNumber}`, callbackfunc);
 }
 
 function callbackfunc(response) {
@@ -38,6 +38,4 @@ function callbackfunc(response) {
 					`<img class="detailsImage" src="${response.image}"></img>` +
 					`${response.summary}`;
 	$(`#project${response.id} .details`).html(details);
-	//console.log($(`#${response.id} .details`));
-	//.html("<h1>FOOOO</h1>")
 }
